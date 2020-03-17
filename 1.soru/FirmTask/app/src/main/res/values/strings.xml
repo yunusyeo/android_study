@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FirmTask</string>
+    <string name="toolbar_title">Anasayfa</string>
+    <string name="search_hint">Ara</string>
+    <string name="internet_warning">Lütfen internet bağlantınızı kontrol ediniz.</string>
+</resources>

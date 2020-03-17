@@ -1,0 +1,47 @@
+public static void main(String[] args) {
+        int n = 4;
+        String text = "abbcccaaeeeeb bfffffca ccab";
+        hideCharacter(4, text);
+    }
+
+    private static void hideCharacter(int n, String text) {
+        Stack<Dictionary> valueStack = new Stack<>();
+        char[] array = text.toCharArray();
+
+        valueStack.push(new Dictionary(array[0], 1));
+
+        //Karakter karşılaştırılması yapılıyor.
+        for (int i = 1; i < array.length; i++) {
+            if (valueStack.peek().ch == array[i]) {
+                valueStack.push(new Dictionary(array[i], valueStack.peek().count + 1));
+            } else {
+                valueStack.push(new Dictionary(array[i], 1));
+            }
+        }
+        String result = "";
+        char flag = '\0';//Tekrar eden karakterden, başka karaktere geçtiğini kontrol etmek için kullanılıyor.
+        while (!valueStack.isEmpty()) {
+            Dictionary dictionary = valueStack.pop();
+            if (dictionary.ch == flag) {
+                result = result.concat("*");
+            } else if (dictionary.count >= n) {
+                flag = dictionary.ch;
+                result = result.concat("*");
+            } else {
+                result = result.concat(String.valueOf(dictionary.ch));
+                flag = '\0';
+            }
+        }
+        System.out.println(new StringBuilder(result).reverse().toString());
+    }
+    
+    //Model sınıfı
+    public static class Dictionary {
+        public char ch;
+        public int count;
+
+        public Dictionary(char ch, int count) {
+            this.ch = ch;
+            this.count = count;
+        }
+    }

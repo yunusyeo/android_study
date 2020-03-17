@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#686365</color>
+
+    <color name="progress">#2196F3</color>
+    <color name="toolbar_title">#FFFF</color>
+    <color name="toolbar">#2196F3</color>
+
+</resources>
